@@ -6,23 +6,15 @@
 
 All SSL.com Certificates adhere to rules for naming and identification, and (except as specifically detailed in the profile for that certificate type) shall require a Distinguished Name that is in compliance with the ITU X.500 standard for Distinguished Names (DN). Names shall be interpreted using the X.500 and RFC822 standards.
 
-For S/MIME Certificates:
-
-- When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or Pseudonym as described in §7.1.4.2.2(a).
-- Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY choose the order of their given name(s) and surname in accordance with national preference.
-- SSL.com MAY allow common variations or abbreviations of Personal Names consistent with local practice.
-
 ### 3.1.2 Need for names to be meaningful, unambiguous and unique
 
-For S/MIME Certificates, Personal Names SHALL be a meaningful representation of the Subject's name as verified in the identifying documentation or Enterprise RA records.
+SSL.com uses distinguished names to identify the subject (i.e. person, organization, device, or object) or issuer of the certificate. Where required by this CP/CPS or applicable external ecosystems, Subscriber certificates will contain meaningful names with commonly understood semantics permitting the determination of the identity of the organization that is the Subject of the certificate by SSL.com and by designated RAs. RAs will describe this process in their associated RPS.
+
+The subject name in CA certificates match the issuer name in certificates issued by such SSL.com CAs, as required by RFC 5280.
 
 ### 3.1.3 Anonymous, pseudonymous and role-based Certificates
 
-The purpose of a Pseudonym is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate.
-
-SSL.com SHALL NOT allow Certificates to be issued with anonymous or pseudonymous Subscriber information. However, for IDNs, SSL.com MAY include the Punycode version of the IDN as a Subject Name.
-
-SSL.com MAY allow Certificates to include role-based Subscriber information. This information SHALL be verified, validated, and SHALL be submitted along with other verified Subscriber information included in the Subject Identity Information field.
+The purpose of a Pseudonym is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. Except where required otherwise by this CP/CPS or applicable external ecosystems, SSL.com may issue anonymous and pseudonymous end-entity certificates provided that they are not prohibited by policy and that any applicable name space uniqueness requirements are met.
 
 ### 3.1.4 Rules for interpreting various name forms
 
@@ -30,13 +22,11 @@ SSL.com Certificates shall be issued with Distinguished Names interpreted using 
 
 ### 3.1.5 Uniqueness of names
 
-The full combination of the Subject Attributes (Distinguished name) has to be unique in SSL.com's PKI. Depending on the type of certificate (SSL, S/MIME, Code Signing), different elements/attributes of the certificate ensure uniqueness.
+The full combination of the Subject Attributes (Distinguished name) has to be unique in SSL.com's PKI. Depending on the type of certificate (TLS, Device, Code Signing), different elements/attributes of the certificate ensure uniqueness.
 
 ### 3.1.6 Recognition, authentication, and role of trademarks
 
 Applicants agree by submitting a certificate request to SSL.com that their request does not contain data which in any way interferes with or infringes upon the rights of any third parties in any jurisdiction with respect to trademarks, service marks, trade names, company names, "doing business as" (DBA) names, or any other intellectual property right, and that they are not presenting the data for any unlawful purpose whatsoever. Data covered by this agreement includes but is not limited to any domain name, domain name space, Distinguished Name (DN), or Fully-Qualified Domain Name (FQDN), and/or any trade name or DBA name, contained in any portion of the certificate request.
-
-If the certificate is to include a DBA, a Mark or trade name in any field whatsoever, SSL.com shall verify the Applicant's right to use the DBA, Mark or trade name using the steps detailed in §4.2.
 
 Applicants requesting SSL.com Certificates shall be responsible for the legality of the information they present for verification and/or use in Certificates for any jurisdiction in which such content may be used or viewed.
 
@@ -54,8 +44,6 @@ SSL.com SHALL inspect any document relied upon for verification for alteration o
 
 All information that is supplied by the Applicant SHALL be verified by using an independent source of information or an alternative communication channel before it is included in a Certificate.
 
-For EV Certificates, SSL.com takes all verification steps reasonably necessary to satisfy the EV Verification Requirements set forth in the EV Guidelines.
-
 ### 3.2.1 Method to prove possession of Private Key
 
 Any Applicant for any SSL.com certificate must submit a Certificate Signing Request (CSR). This establishes that the Applicant holds the Private Key corresponding to the Public Key to be included in the requested certificate.
@@ -67,22 +55,6 @@ This requirement does not apply when a Key Pair is generated by SSL.com on behal
 Requests for Certificates which include an organization identity shall be verified using the criteria described below. Items to be verified include the legal existence, legal name, assumed name, legal form, jurisdiction of incorporation or registration of the legal entity, identifier and type of identifier of the legal entity, requested address of the legal entity, and the authority of the requesting party, as applicable. SSL.com shall inspect any document relied upon for these purposes for alteration or falsification.
 
 If the Applicant requests a TLS Certificate that will contain Subject Identity Information comprised only of the countryName field, then SSL.com SHALL verify the country associated with the Subject using a verification process meeting the requirements of §3.2.2.3 of this CP/CPS. If the Applicant requests a TLS Certificate that will contain the countryName field and other Subject Identity Information, then SSL.com SHALL verify the identity of the Applicant, and the authenticity of the Applicant Representative’s certificate request using a verification process meeting the requirements of §3.2.2.1 of this CP/CPS.
-
-Verification of organization identity in any request for an Extended Validation Certificate shall follow the EV verification procedures described in the EV Guidelines. In particular, before issuing an EV Certificate, SSL.com SHALL ensure that all Subject organization information to be included in the EV Certificate conforms to the requirements of, and is verified in accordance with, EV Guidelines and matches the information confirmed and documented by SSL.com pursuant to its verification processes. Extended validation processes SHALL verify the following:
-
-1. The Applicant’s existence and identity, including;
-    a. The Applicant’s legal existence and identity, as per Section 3.2.2.2 of the EV Guidelines,
-    b. The Applicant’s physical existence (business presence at a physical address), as per Section 3.2.2.4 of the EV Guidelines,
-    c. The Applicant’s operational existence (business activity), as per Section 3.2.2.6 of the EV Guidelines, and
-    d. The Applicant's assumed name, as per Section 3.2.2.3 of the EV Guidelines (if applicable).
-2. That the Applicant is a registered holder, or has control, of the Domain Name(s) to be included in the EV Certificate, as per Section 3.2.2.7 of the EV Guidelines;
-3. A Verified Method of Communication with the entity to be named as the Subject in the Certificate, as per Section 3.2.2.5 of the EV Guidelines;
-4. The Applicant’s authorization for the EV Certificate, including;
-    a. The name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester, as per Section 3.2.2.8 of the EV Guidelines,
-    b. That a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use, as per Section 3.2.2.9 of the EV Guidelines; and
-    c. That a Certificate Approver has signed or otherwise approved the EV Certificate Request, as per Section 3.2.2.10 of the EV Guidelines.
-
-When performing the above, SSL.com MAY take additional verification steps that MAY be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement. Whenever the use of documentation obtained by an Incorporating Agency or Registration Agency is required in this process, SSL.com SHALL only use agencies included in its approved, at time of issuance, List of Approved Incorporating and Registration Agencies. This list is publicly available at <https://www.ssl.com/repository> (see §2.2.8).
 
 #### 3.2.2.1 Identity
 
@@ -381,7 +353,7 @@ SSL.com SHALL confirm that prior to issuance, SSL.com has validated the Applican
 
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation must have been initiated within the time period specified in §4.2.1 prior to Certificate issuance. For purposes of IP Address validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
-After July 31, 2019, SSL.com SHALL maintain a record of which IP validation method, including the relevant BR version number, was used to validate every IP Address.
+SSL.com SHALL maintain a record of which IP validation method, including the relevant TLS BR version number, was used to validate every IP Address.
 
 **Note:** IP Addresses verified in accordance with this §3.2.2.5 may be listed in Subscriber Certificates as defined in §7.1.4.2 or in Subordinate CA Certificates via iPAddress in permittedSubtrees within the Name Constraints extension. SSL.com is not required to verify IP Addresses listed in Subordinate CA Certificates via iPAddress in excludedSubtrees in the Name Constraints extension prior to inclusion in the Subordinate CA Certificate.
 
@@ -492,8 +464,6 @@ SSL.com MAY check CAA records at any other time.
 
 When processing CAA records for the issuance of TLS Certificates, SSL.com must process the `issue`, `issuewild`, and `iodef` property tags as specified in RFC 8659, although SSL.com is not required to act on the contents of the `iodef` property tag. Additional property tags MAY be supported, but MUST NOT conflict with or supersede the mandatory property tags set out in the Baseline Requirements. Additional property tags may be supported, but must not conflict with or supersede the mandatory property tags set out in this document. SSL.com must respect the critical flag and not issue a certificate if an unrecognized property with this flag set is encountered.
 
-When processing CAA records for the issuance of Mark Certificates, SSL.com must process the `issuevmc` property tag as specified in RFC 8659. CAA records with `issue` or `issuewild` Property Tags do not restrict the issuance of Mark Certificates. The sub-syntax of the `issuevmc` Property Tag value is treated the same as the `issue` Property Tag as defined in section 4.2 of RFC 8659. The semantics of the `issuevmc` Property Tag are similar to the `issue` Property Tag, with the only difference being that the `issuevmc` Property Tag restricts issuance of Mark Certificates as opposed to TLS Server Authentication Certificates.
-
 If SSL.com issues a TLS certificate after processing a CAA record, it MUST do so within the TTL of the CAA record, or 8 hours, whichever is greater.
 
 RFC 8659 requires that a CA "MUST NOT issue a certificate unless the CA determines that either (1) the certificate request is consistent with the applicable CAA RRset or (2) an exception specified in the relevant CP or CPS applies." For issuances conforming to this CP/CPS, SSL.com must not rely on any exceptions specified in this CP/CPS unless they are one of the following:
@@ -526,204 +496,6 @@ DNSSEC validation back to the IANA DNSSEC root trust anchor MAY be performed on 
 
 DNSSEC validation back to the IANA DNSSEC root trust anchor is considered outside the scope of self-audits performed to fulfill the requirements in Section 8.7.
 
-#### 3.2.2.9 Validation of mailbox authorization or control
-
-This section defines the permitted processes and procedures for confirming the Applicant’s control of Mailbox Addresses to be included in issued Certificates.
-
-SSL.com SHALL verify that Applicant controls the email accounts associated with all Mailbox Fields referenced in the Certificate or has been authorized by the email account holder to act on the
-
-SSL.com SHALL NOT delegate the verification of mailbox authorization or control.
-
-Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as Section 4.2.1) prior to Certificate issuance.
-
-##### 3.2.2.9.1 Validating authority over mailbox via domain
-
-SSL.com MAY confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity’s control over the domain portion of the Mailbox Address to be used in the Certificate.
-
-An Applicant that confirms control of the domain part of an email address is authorized for any local part followed by the at-sign ("@"), followed by the Authorization Domain Name or by any other Domain Name that ends with all the Domain Labels of the validated Authorization Domain Name.
-
-SSL.com SHALL use only the approved methods described in §3.2.2.4 to perform this verification.
-
-For purposes of domain validation, the term Applicant includes the Applicant’s Parent Company, Subsidiary Company, or Affiliate.
-
-##### 3.2.2.9.2 Validating control over mailbox via email
-
-SSL.com MAY confirm the Applicant’s control over each Mailbox Field to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value.
-
-Control over each Mailbox Address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way.
-
-The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation.
-
-The Random Value SHALL be reset upon each instance of the email sent by SSL.com to a Mailbox Address, however all relevant Random Values sent to that Mailbox Address MAY remain valid for use in a confirming response within the validity period described in this Section.
-
-In addition, the Random Value SHALL be reset upon first use by the user if intended for additional use as an authentication factor following the Mailbox Address verification.
-
-##### 3.2.2.9.3 Validating applicant as operator of associated mail server(s)
-
-SSL.com MAY confirm the Applicant’s control over each Mailbox Field to be included in the Certificate by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, SSL.com SHALL verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1. Aliases in MX record RDATA SHALL NOT be used for this validation method.
-
-To confirm the Applicant’s control of the SMTP FQDN, SSL.com SHALL use only the currently‐approved methods described in §3.2.2.4.
-
-##### 3.2.2.9.4 Validating control over mailbox using ACME extensions
-
-SSL.com MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in RFC 8823. SSL.com's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with RFC 8823.
-
-Control over each Mailbox Address SHALL be confirmed using a newly-generated Random Value. The Random Value token components SHALL only be shared in accordance with RFC 8823. As defined by RFC 8823, `token-part1` SHALL contain at least 128 bits of entropy and `token-part2` SHOULD contain at least 128 bits of entropy.
-
-The Random Value SHALL NOT be reused by SSL.com for other Certificate Requests. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation.
-
-Implementations MAY use ACME External Account Binding as defined by RFC 8555.  
-
-#### 3.2.2.10 Mark Verification in Verified Mark Certificates
-
-SSL.com issues Verified Mark Certificates (VMCs) for Marks registered with a Trademark Office and qualify as a Registered Mark. These Marks can be Combined Marks, Design Marks, or Word Marks.
-
-##### 3.2.2.10.1 Verification of Mark with Trademark Office
-
-SSL.com SHALL verify the:
-
-1. Registered Mark’s trademark registration number and name of the Trademark Office that granted the trademark registration; and
-2. Mark Representation in SVG format that the Applicant wishes to include in the Verified Mark Certificate. Registered Marks MUST be in good standing and MUST be verified through consultation with the official database of the applicable Trademark Office.
-
-As an alternative, the Validation Specialist MAY verify the Registered Mark through the WIPO Global Brand Database at <https://www.wipo.int/reference/en/branddb/>.
-
-##### 3.2.2.10.2 Verification of Registered Mark Ownership or License
-
-SSL.com SHALL confirm that the owner of the Registered Mark identified in the official database of the applicable Trademark Office or the WIPO Global Brand Database is the same Subject organization verified in §3.2.2.1.
-
-##### 3.2.2.10.3 Confirmation of Mark Representation
-
-SSL.com SHALL verify that the Mark submitted by the Applicant exactly matches the Registered Mark on record. This verification will be documented by comparing the Mark with the official database of the relevant Trademark Office or the WIPO Global Brand Database.
-
-##### 3.2.2.10.4 Color Restrictions
-
-Verified Mark Certificates for Combined and Design Marks can only display colors explicitly permitted for the Registered Mark by the relevant trademark office, if any. SSL.com SHALL review the registration to identify any specific colors claimed by the owner of the registered mark.
-
-#### 3.2.2.11 Mark Verification in Common Mark Certificates
-
-SSL.com issues Common Mark Certificates (MCs) for a Mark Representation that has not been verified as a Registered Mark or Government Mark.
-
-##### 3.2.2.11.1 Verification of Prior Use of Mark for Minimum Period
-
-This type of Mark Certificate is appropriate for Common Marks that are not Registered Marks.
-
-The Applicant will provide SSL.com with the Mark Representation in SVG format that the Applicant
-wishes to include in the Mark Certificate. SSL.com SHALL verify that:
-
-1.	a Mark that matches the Mark Representation is currently displayed on a website. The Applicant’s control of the Domain Name of the website MUST be verified using at least one method specified in Section 3.2.14 of the MC Guidelines, and
-2.	a Mark that matches the Mark Representation was historically displayed at least 12 months earlier than the date of Mark verification on the same Domain Name that was verified as being controlled by the Applicant in (1). The historical display MUST be verified via one of the Archive Webpage Sources allowed by these Requirements.
-
-SSL.com SHALL also retain a screenshot or other record of the Mark Representation provided by the Applicant and all Mark images found during the verification process stated in the previous paragraph.
-
-##### 3.2.2.11.2 Approved Archive Webpage Sources
-
-Validations of Mark Representations performed in accordance with §3.2.2.11.1 SHALL employ one of the following Archive Webpage Sources:
-
-- archive.org
-
-This approved list may be modified from time to time.
-
-##### 3.2.2.11.3 Color Restrictions
-
-Mark Representations in Mark Certificates based on proof of prior use shall follow the same color rules that apply to Common Marks in the applicable jurisdiction. SSL.com SHALL review the prior use to identify any specific colors claimed by the owner of the Mark Representation.
-
-#### 3.2.2.12 Government Mark Verification
-
-SSL.com issues Government Mark Certificates for a Mark or equivalent granted to or claimed by a Government Entity or Non-Commercial Entity (International Organization) (or granted to a private organization or other organization by a Government Entity or Non-Commercial Entity [International Organization] through official statute, regulation, treaty,
-or government action) as it appears or is described in the statute, regulation, treaty, or government action and confirmed by a Mark Verifying Authority.
-
-##### 3.2.2.12.1 Verification of Statute, Regulation, Treaty, or Action
-
-SSL.com MUST confirm that the Government Mark has been granted to, or claimed by, a Government Entity or a Non-Commercial Entity (International Organization) by verifying the grant or claim in publicly available records of the applicable statute, regulation, treaty, or government action.
-
-SSL.com MUST retain a copy of the statute, regulation, treaty, or government action, including all official references (e.g., statute or regulation number and jurisdiction), as well as a copy of the Mark as contained in or referenced by the statute or regulation.
-
-A Government Mark may also be granted to private or other types of organizations by Government or Non-Commercial Entities through an official statute, regulation, treaty, or government action.
-
-##### 3.2.2.12.2 Verification of Government Mark Ownership or License
-
-SSL.com MUST confirm that the owner of the Government Mark identified in Section §3.2.2.12.1 either:
-1. is the same Subject Organization (Applicant) verified through the Verified Mark Identity vetting process; or
-2. has granted the Subject Organization (Applicant) the right to use the Government Mark pursuant to applicable statute, regulation, treaty, or government action, or through a mutually agreed-upon license.
-
-If the owner of record of the Government Mark is not the Applicant, the Applicant MAY use the Government Mark only if SSL.com obtains a written authorization letter from the owner of record of the Government Mark.
-
-##### 3.2.2.12.3 Confirmation of Mark Representation
-
-SSL.com SHALL confirm that the Mark Representation submitted by the Applicant matches the Government Mark as confirmed under Section §3.2.2.12.1. 
-
-##### 3.2.2.12.4 Color Restrictions
-
-SSL.com MUST review the Government Mark submitted for inclusion in a Government Mark Certificate and ensure that only the colors permitted, if any, under the applicable statute, regulation, treaty, or government action are used.
-
-#### 3.2.2.13 Multi-Perspective Issuance Corroboration
-
-Multi-Perspective Issuance Corroboration attempts to corroborate the determinations (i.e., domain validation pass/fail, CAA permission/prohibition) made by the Primary Network Perspective from multiple remote Network Perspectives before Certificate issuance. This process can improve protection against equally-specific prefix Border Gateway Protocol (BGP) attacks or hijacks.
-
-SSL.com MAY use either the same set, or different sets of Network Perspectives when performing Multi-Perspective Issuance Corroboration for the required 1) Domain Authorization or Control and 2) CAA Record checks.
-
-The set of responses from the relied upon Network Perspectives MUST provide SSL.com with the necessary information to allow it to affirmatively assess:
-
-a. the presence of the expected 1) Random Value, 2) Request Token, 3) IP Address, or 4) Contact Address, as required by the relied upon validation method specified in Sections §3.2.2.4 and §3.2.2.5; and
-b. the CA's authority to issue to the requested domain(s), as specified in §3.2.2.8.
-
-§3.2.2.4 and §3.2.2.5 describe the validation methods that require the use of Multi-Perspective Issuance Corroboration and how a Network Perspective can corroborate the outcomes determined by the Primary Network Perspective.
-
-Results or information obtained from one Network Perspective MUST NOT be reused or cached when performing validation through subsequent Network Perspectives (e.g., different Network Perspectives cannot rely on a shared DNS cache to prevent an adversary with control of traffic from one Network Perspective from poisoning the DNS cache used by other Network Perspectives). The network infrastructure providing Internet connectivity to a Network Perspective MAY be administered by the same organization providing the computational services required to operate the Network Perspective. All communications between a remote Network Perspective and the CA MUST take place over an authenticated and encrypted channel relying on modern protocols (e.g., over HTTPS).
-
-A Network Perspective MAY use a recursive DNS resolver that is NOT co-located with the Network Perspective. However, the DNS resolver used by the Network Perspective MUST fall within the same Regional Internet Registry service region as the Network Perspective relying upon it. Furthermore, for any pair of DNS resolvers used on a Multi-Perspective Issuance Corroboration attempt, the straight-line distance between the two DNS resolvers MUST be at least 500 km. The location of a DNS resolver is determined by the point where unencapsulated outbound DNS queries are typically first handed off to the network infrastructure providing Internet connectivity to that DNS resolver.
-
-SSL.com MAY immediately retry Multi-Perspective Issuance Corroboration using the same validation method or an alternative method (e.g., a CA can immediately retry validation using "Email to DNS TXT Contact" if "Agreed-Upon Change to Website - ACME" does not corroborate the outcome of Multi-Perspective Issuance Corroboration). When retrying Multi-Perspective Issuance Corroboration, SSL.com MUST NOT rely on corroborations from previous attempts. There is no stipulation regarding the maximum number of validation attempts that may be performed in any period of time.
-
-The "Quorum Requirements" Table describes quorum requirements related to Multi-Perspective Issuance Corroboration. If SSL.com does NOT rely on the same set of Network Perspectives for both Domain Authorization or Control and CAA Record checks, the quorum requirements MUST be met for both sets of Network Perspectives (i.e.,the Domain Authorization or Control set and the CAA record check set). Network Perspectives are considered distinct when the straight-line distance between them is at least 500 km. Network Perspectives are considered "remote" when they are distinct from the Primary Network Perspective and the other Network Perspectives represented in a quorum.
-
-SSL.com MAY reuse corroborating evidence for CAA record quorum compliance for a maximum of 398 days. After issuing a Certificate to a domain, remote Network Perspectives MAY omit retrieving and processing CAA records for the same domain or its subdomains in subsequent Certificate requests from the same Applicant for up to a maximum of 398 days.
-
-Table: Quorum Requirements
-
-| # of Distinct Remote Network Perspectives Used | # of Allowed non-Corroborations |
-| --- | --- |
-| 2-5 | 1 |
-| 6+ | 2 |
-
-Remote Network Perspectives performing Multi-Perspective Issuance Corroboration:
-
-MUST:
-
-- Network Hardening
-    - Rely upon networks (e.g., Internet Service Providers or Cloud Provider Networks) implementing measures to mitigate BGP routing incidents in the global Internet routing system for providing internet connectivity to the Network Perspective.
-
-SHOULD:
-
-- Facility & Service Provider Requirements
-    - Be hosted from an ISO/IEC 27001 certified facility or equivalent security framework independently audited and certified or reported.
-    - Rely on services covered in one of the following reports: System and Organization Controls 2 (SOC 2), IASE 3000, ENISA 715, FedRAMP Moderate, C5:2020, CSA STAR CCM, or equivalent services framework independently audited and certified or reported.
-- Vulnerability Detection and Patch Management
-    - Implement intrusion detection and prevention controls to protect against common network and system threats.
-    - Document and follow a vulnerability correction process that addresses the identification, review, response, and remediation of vulnerabilities.
-    - Undergo or perform a Vulnerability Scan at least every three (3) months.
-    - Undergo a Penetration Test on at least an annual basis.
-    - Apply recommended security patches within six (6) months of the security patch's availability, unless the CA documents that the security patch would introduce additional vulnerabilities or instabilities that outweigh the benefits of applying the security patch.
-- System Hardening
-    - Disable all accounts, applications, services, protocols, and ports that are not used.
-    - Implement multi-factor authentication for all user accounts.
-- Network Hardening
-    - Configure each network boundary control (firewall, switch, router, gateway, or other network control device or system) with rules that support only the services, protocols, ports, and communications identified as necessary to its operations.
-    - Rely upon networks (e.g., Internet Service Providers) that: 1) use mechanisms based on Secure Inter-Domain Routing (RFC 6480), for example, BGP Prefix Origin Validation (RFC 6811), 2) make use of other non-RPKI route-leak prevention mechanisms (such as RFC 9234), and 3) apply current best practices described in BCP 194. While It is RECOMMENDED that under normal operating conditions Network Perspectives performing Multi-Perspective Issuance Corroboration forward all Internet traffic via a network or set of networks that filter RPKI-invalid BGP routes as defined by RFC 6811, it is NOT REQUIRED.
-
-Beyond the above considerations, computing systems performing Multi-Perspective Issuance Corroboration are considered outside of the audit scope described in §8 of these Requirements.
-
-If any of the above considerations are performed by a Delegated Third Party, SSL.com MAY obtain reasonable evidence from the Delegated Third Party to ascertain assurance that one or more of the above considerations are followed. As an exception to §1.3.2, Delegated Third Parties are not required to be within the audit scope described in §8 of these Requirements to satisfy the above considerations.
-
-Phased Implementation Timeline:
-
-- *Effective September 15, 2024*, SSL.com SHOULD implement Multi-Perspective Issuance Corroboration using at least two (2) remote Network Perspectives.
-- *Effective March 15, 2025*, SSL.com MUST implement Multi-Perspective Issuance Corroboration using at least two (2) remote Network Perspectives. SSL.com MAY proceed with certificate issuance if the number of remote Network Perspectives that do not corroborate the determinations made by the Primary Network Perspective ("non-corroborations") is greater than allowed in the Quorum Requirements table.  
-- *Effective September 15, 2025*, SSL.com MUST implement Multi-Perspective Issuance Corroboration using at least two (2) remote Network Perspectives. SSL.com MUST ensure that the requirements defined in Quorum Requirements Table are satisfied. If the requirements are not satisfied, then SSL.com MUST NOT proceed with issuance of the Certificate.
-- *Effective March 15, 2026*, SSL.com MUST implement Multi-Perspective Issuance Corroboration using at least three (3) remote Network Perspectives. SSL.com MUST ensure that the requirements defined in Quorum Requirements Table are satisfied, and the remote Network Perspectives that corroborate the Primary Network Perspective fall within the service regions of at least two (2) distinct Regional Internet Registries. If the requirements are not satisfied, then SSL.com MUST NOT proceed with issuance of the Certificate.  
-- *Effective June 15, 2026*, SSL.com MUST implement Multi-Perspective Issuance Corroboration using at least four (4) remote Network Perspectives. SSL.com MUST ensure that the requirements defined in Quorum Requirements Table are satisfied, and the remote Network Perspectives that corroborate the Primary Network Perspective fall within the service regions of at least two (2) distinct Regional Internet Registries. If the requirements are not satisfied, then SSL.com MUST NOT proceed with issuance of the Certificate.
-- *Effective December 15, 2026*, SSL.com MUST implement Multi-Perspective Issuance Corroboration using at least five (5) remote Network Perspectives. SSL.com MUST ensure that the requirements defined in Quorum Requirements Table are satisfied, and the remote Network Perspectives that corroborate the Primary Network Perspective fall within the service regions of at least two (2) distinct Regional Internet Registries. If the requirements are not satisfied, then SSL.com MUST NOT proceed with issuance of the Certificate.
-
 ### 3.2.3 Authentication of individual identity
 
 #### 3.2.3.1 Natural Person as an individual Applicant
@@ -740,42 +512,18 @@ For server certificates, SSL.com SHALL verify:
 
 For Code Signing certificates, verification shall be through one or more of the methods described in the Minimum Requirements for Code Signing.
 
-For Extended Validation Certificates, SSL.com shall follow the EV verification procedures as described in the EV Guidelines. Verification for EV Code Signing certificates must meet requirements in both the Minimum Requirements for Code Signing and the EV Guidelines.
-
-For Document Signing Certificates, SSL.com shall rely on strong identity proofing, based on a face to face meeting with the Applicant, or a procedure that provides an equivalent assurance. The latter may include any of the following:
-
-- means of secure video communication;
-- use of identity verification software/AI;
-- hybrid or other methods.
-
-For S/MIME Certificates, the following requirements SHALL be fulfilled to authenticate Individual identity attributes included in `Sponsor-validated` and `Individual-validated` Certificate profiles:
-
-1. SSL.com, the RA, or the Enterprise RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
-    a. Given name(s) and surname(s), which SHALL be current names;
-    b. Title (if used);
-    c. Address (if displayed in Subject); and
-    d. Further information as needed to uniquely identify the Applicant.
-2. SSL.com or the RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accordance with Section 9.4.
-3. The above-mentioned identity proofing methods utilized for Document Signing Certificates MAY also be used for S/MIME Certificates.
-
 #### 3.2.3.2 Natural Person associated with a Legal Entity
 
-For Document Signing, S/MIME and Client Authentication Certificates issued to Natural Persons associated with Legal Entities, SSL.com  
+For Client Authentication Certificates issued to Natural Persons associated with Legal Entities, SSL.com  
 
 - shall validate the Legal Entity following the requirements of §3.2.2.1;
 - shall obtain evidence that the individual is associated with the Legal Entity.
 
-For Document Signing Certificates, SSL.com shall perform identity verification of individual natural persons associated with that Legal Entity following the requirements of §3.2.3.1.
-
-For S/MIME and Client Authentication Certificates, SSL.com may also rely on the Legal Entity to perform identity verification of individual natural persons associated with that Legal Entity.
-
-For S/MIME Certificates, an Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
+For Client Authentication Certificates, SSL.com may also rely on the Legal Entity to perform identity verification of individual natural persons associated with that Legal Entity.
 
 ### 3.2.4 Non-verified information
 
 SSL.com does not verify information contained in the Organization Unit (OU) field in any certificate request, and only ensures that the OU attribute meets the requirements described in §7.1.4.2.2 i. Other information may be designated as non-verified in specific certificate profiles. Non-verified information other than the OU field will be detailed in the certificate profile and in the verification process for that certificate type as given in §4.
-
-SSL.com may waive its standard identity validation procedures for Test Document Signing Certificates. Any such certificates SHALL clearly indicate that they are for testing purposes, as specified in §7.1.6.
 
 ### 3.2.5 Validation of authority
 
@@ -789,15 +537,13 @@ For server certificate requests:
 
 For Code Signing certificate requests, verification of this authority shall be through one or more of the methods described in the Code Signing Baseline Requirements. Verification of authority for EV Code Signing certificates must meet the EV requirements described in the Code Signing Baseline Requirements.
 
-For Extended Validation TLS Certificate requests, SSL.com shall follow procedures described in the EV Guidelines to verify the authority of the request.
-
 ### 3.2.6 Criteria for interoperation
 
 SSL.com MAY issue Cross-Certified Subordinate CA Certificates as required in order to assist root roll-over operations.
 
 SSL.com MAY issue Cross-Certified Subordinate CA Certificates to other CA operators provided there is alignment with this CP/CPS and SSL.com arranged for or accepted the establishment of the trust relationship (i.e. the Cross-Certified Subordinate CA Certificate at issue). The cross certification terms and criteria are to be set forth in an applicable agreement.
 
-All Cross-Certified Subordinate CA Certificates that identify SSL.com as the Subject SHALL be disclosed in CCADB and the SSL.com Repository.
+All Cross-Certified Subordinate CA Certificates that identify SSL.com as the Subject SHALL be disclosed in the SSL.com Repository.
 
 ## 3.3 Identification and authentication for re-keying
 
@@ -807,8 +553,6 @@ Subscribers may request re-keying of an SSL.com certificate prior to the certifi
 
 Subordinate CAs of SSL.com may request re-keying of a certificate registered by them prior to the certificate's expiration.
 The re-keying process is detailed fully in §4.7.
-
-This section is not applicable to Mark Certificates.
 
 ### 3.3.1 Re-keying request by Subscriber
 
