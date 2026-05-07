@@ -167,16 +167,6 @@ SSL.com MAY contractually authorize the Subject of a specified Valid EV Certific
 5. The audit requirements of §8.4 SHALL apply to the Enterprise RA, except in the case where SSL.com maintains control over the Root CA Private Key or Subordinate CA Private Key used to issue the Enterprise EV Certificates, in which case, the Enterprise RA may be exempted from the audit requirements.
 6. SSL.com does NOT contractually authorize the Subject of a specified Valid EV Code Signing Certificate to perform the RA function and authorize SSL.com to issue additional EV Code Signing Certificates.
 
-**For S/MIME Certificates:**
-SSL.com MAY delegate to an Enterprise Registration Authority (RA) to verify Certificate Requests for Subjects within the Enterprise RA's own organization. SSL.com SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
-
-1. If the Certificate Request is for a `Mailbox-validated`, `Organization-validated`, or `Sponsor-validated` profile, SSL.com SHALL confirm that the Enterprise RA has authorization or control of the requested email domain(s) in accordance with §3.2.2.9.1 or §3.2.2.9.3.
-2. SSL.com SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, SSL.com SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in §3.2 or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
-
-SSL.com SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with §8.4.
-
-An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, SSL.com SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with §3.2.2.9.2 or §3.2.2.9.4
-
 ### 1.3.2.2 Guidelines Compliance Obligation
 
 In all cases, SSL.com contractually obligates each Affiliate, RA, subcontractor, and Enterprise RA to comply with all applicable requirements in this CP/CPS and to perform them as required of SSL.com itself. SSL.com shall enforce these obligations and internally audit each Affiliate's, RA's, subcontractor's, and Enterprise RA's compliance with this CP/CPS on an annual basis.
