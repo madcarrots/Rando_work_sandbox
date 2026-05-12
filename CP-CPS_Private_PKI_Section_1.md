@@ -540,16 +540,6 @@ used for the specific purpose of protecting the lifecycle of cryptographic keys 
 
 **Qualified Auditor:** A natural person or Legal Entity that meets the requirements of §8.2 (Auditor Qualifications).
 
-**Qualified Government Information Source:** A regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information, provided that it is
-
-1. maintained by a Government Entity,
-2. the reporting of data is required by law, and
-3. false or misleading reporting is punishable with criminal or civil penalties.
-
-**Qualified Government Tax Information Source:** A Qualified Governmental Information Source that specifically contains tax information relating to Private Organizations, Business Entities, or Individuals.
-
-**Qualified Independent Information Source:** A regularly‐updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information.
-
 **RA:** See Registration Authority
 
 **Random Value:** A value specified by SSL.com to the Applicant that exhibits at least 112 bits of entropy.
