@@ -31,13 +31,9 @@ SSL.com’s PKI operations follow the Certificate Management Protocol (CMP) as d
 
 Either the Applicant or an authorized Certificate Requester may submit certificate requests. Applicants are responsible for the accuracy of any data submitted.
 
-In all cases SSL.com or any Enterprise RA shall require identification and authentication sufficient to meet the requirements relevant to the type of certificate requested.
+In all cases SSL.com shall require identification and authentication sufficient to meet the requirements relevant to the type of certificate requested.
 
 SSL.com shall not issue Certificates to organizations or entities on a government denied list maintained by the United States, or which is located in a country with which the laws of the United States prohibit doing business.
-
-SSL.com shall only issue EV SSL and EV Code Signing Certificates to Applicants which submit a complete Certificate Request and meet the requirements specified in the CA/Browser Forum's EV SSL and EV Code Signing Guidelines respectively, in addition to the requirements of this CP/CPS.
-
-SSL.com shall only issue Mark Certificates to Mark Asserting Entities which submit a complete Certificate Request and meet the requirements specified in the MC Guidelines, in addition to the requirements of this CP/CPS.
 
 ### 4.1.2 Enrollment process and responsibilities
 
@@ -51,7 +47,7 @@ The enrollment process to obtain an SSL.com certificate shall include:
 
 The order in which these events occur may vary, depending on the method used and product ordered.
 
-SSL.com shall obtain any additional documentation and perform any additional steps deemed necessary to meet the requirements for the product requested. EV TLS, EV Code Signing and Mark Certificate requests must fully meet the requirements for those products.
+SSL.com shall obtain any additional documentation and perform any additional steps deemed necessary to meet the requirements for the product requested.
 
 #### 4.1.2.1 Enrollment process for SSL.com central RA
 
@@ -59,22 +55,9 @@ In most cases, a request for an SSL.com certificate is made through the SSL.com 
 
 SSL.com may, at its sole discretion, and on a case by case basis, accept requests which are not submitted via the Applicant’s SSL.com Account. Additional verification and/or authentication may be required for requests submitted outside of the SSL.com Account Dashboard.
 
-The following Applicant roles are required for the issuance of an EV and Mark Certificate.
-
-1. **Certificate Requester:** The EV/Mark Certificate Request must be submitted by an authorized Certificate Requester. A Certificate Requester is a natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV/Mark Certificate Request on behalf of the Applicant.
-2. **Certificate Approver:** The EV/Mark Certificate Request must be approved by an authorized Certificate Approver. A Certificate Approver is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to (i) act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and (ii) to approve EV/Mark Certificate Requests submitted by other Certificate Requesters.
-3. **Contract Signer:** A Subscriber Agreement applicable to the requested EV/Mark Certificate must be signed by an authorized Contract Signer. A Contract Signer is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
-4. **Applicant Representative:** In the case where SSL.com and the Subscriber are affiliated, Terms of Use applicable to the requested EV/Mark Certificate must be acknowledged and agreed to by an authorized Applicant Representative. An Applicant Representative is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to acknowledge and agree to the Terms of Use.
-
-The Applicant may authorize one individual to occupy two or more of these roles, and/or may authorize more than one individual to occupy any of these roles.
-
-In the F2F Verification Procedure required for Mark Certificate requests, either the Contract Signer or the Certificate Approver can act as the Designated Individual.
-
 #### 4.1.2.2 Enrollment process for Enterprise RAs
 
-Any Enterprise RA authorized to use the SSL.com PKI to issue Certificates must have appropriate processes in place to receive certificate requests, as detailed in chapter 3.
-
-Any Enterprise RA authorized to use the SSL.com PKI may submit certificate requests by an authorized call to the SSL.com API.
+No stipulation.
 
 #### 4.1.2.3 The Certificate Signing Request (CSR)
 
